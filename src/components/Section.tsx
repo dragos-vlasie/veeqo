@@ -1,6 +1,8 @@
+"use client"
 import React from "react";
 import Image from "next/image";
 import Button from "./Button";
+import { motion } from "framer-motion";
 
 // Define types for content items
 type TextBlock = {
@@ -61,8 +63,21 @@ const Section: React.FC<SectionProps> = ({ theme = "light", padding, content }) 
         const textPosition = textBlockItem.textPosition ? getTextPosition(textBlockItem) : "self-center";
         const checkBackground = textBlockItem.textPosition && textBlockItem.textPosition === "top" ? "!bg-[#2578FF]" : "";
 
+        const offsetX = index % 2 ? -40 : 40
         return (
-          <div
+          <motion.div
+          initial={{
+            opacity: 0,
+            x: index % 2 === 0 ? 50 : -50
+          }}
+          whileInView={{
+            opacity: 1,
+            x: 0, 
+            transition: {
+              duration: 1
+            }
+          }}
+          viewport={{ once: true }}
             key={index}
             className={` text-block
             ${textColor} ${order} ${textPosition} `}
@@ -90,7 +105,7 @@ const Section: React.FC<SectionProps> = ({ theme = "light", padding, content }) 
                 {textBlockItem.buttonText}
               </Button>
             )}
-          </div>
+          </motion.div>
         );
       } else if (item.__typename === "ImageBlock") {
         const order = flexOrder(item);
