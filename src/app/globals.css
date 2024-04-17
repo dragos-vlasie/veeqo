@@ -41,3 +41,25 @@
 .light {
   background: #fff;
 }
+.max-content-with {
+  max-width: 120rem;
+}
+
+
+@layer components {
+  .text-block {
+    @apply max-w-full md:max-w-72 2xl:max-w-md
+  }
+
+  .headline {
+    @apply text-2xl md:text-3xl 2xl:text-4xl
+  }
+
+  .normal-text {
+    @apply text-xl md:text-xl 2xl:text-2xl
+  }
+
+  .headlineXl {
+    @apply text-5xl md:text-7xl 2xl:text-9xl font-bold
+  }
+}
