@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* override next-video default styles */
+:root {
+  --media-object-fit: cover;
+}
+
+:host {
+    --media-icon-color: black;
+}
+
+::part(center),
+[part~="center"] {
+  background: #fff;
+}
+
+::part(center),
+[part~="center"] svg path {
+  fill: red !important;
+}
+
+::part(controller) {
+  border-radius: 2rem;
+}
+
+::part(video),
+[part~="video"] {
+  border-radius: 2rem;
+}
+
+.next-video-container img {
+  border-radius: 2rem;
+}
+/* Theme */
+.dark {
+  background: #05192c;
+}
+
+.light {
+  background: #fff;
+}
