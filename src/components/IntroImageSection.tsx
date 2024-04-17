@@ -1,7 +1,6 @@
 "use client"
 import React from "react";
 import Image from "next/image";
-import { useDevice } from "@/utils/get-device";
 
 type IntroImage = {
   src: string;
