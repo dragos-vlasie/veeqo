@@ -1,5 +1,3 @@
-// Section.js
-
 import React from "react";
 import Image from "next/image";
 import Button from "./Button";
@@ -42,11 +40,18 @@ type SectionProps = {
 };
 
 const Section: React.FC<SectionProps> = ({ theme = "light", padding, content }) => {
-  const textColor = theme === "light" ? "text-[#05192D]" : "text-white";
-  const backgroundColor = theme === "dark" ? "bg-[#CCF7FC] text-[#05192D]" : "bg-[#05192D] text-white";
-  const flexOrder = (item: TextBlock | ImageBlock) => (item.isFirst ? "order-1" : "order-2");
-  const getTextPosition = (item: TextBlock) =>
-    item.textPosition === "top" ? "self-top mb-[-3rem] mt-0 md:mt-16" : "self-end md:mb-[-6rem]";
+ // Determine text color based on the theme
+ const textColor = theme === "light" ? "text-[#05192D]" : "text-white";
+ // Determine background color based on the theme
+ const backgroundColor = theme === "dark" ? "bg-[#CCF7FC] text-[#05192D]" : "bg-[#05192D] text-white";
+
+ // Function to determine flex order based on the item type
+ const flexOrder = (item: TextBlock | ImageBlock) => (item.isFirst ? "order-1" : "order-2");
+
+ // Function to determine text position based on the TextBlock properties
+ const getTextPosition = (item: TextBlock) =>
+   item.textPosition === "top" ? "self-top mb-[-3rem] mt-0 md:mt-16" : "self-end md:mb-[-6rem]";
+
 
   const renderContent = () => {
     return content.map((item, index) => {
