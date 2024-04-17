@@ -47,7 +47,7 @@ function IconsText({ iconData, startCol, endCol }: IconsTextProps) {
   };
 
   return (
-    <div className="flex mt-24 mb-36 max-w-screen-2xl m-auto justify-end px-8 md:px-16">
+    <div className="flex mt-8 md:mt-24 mb-24 md:mb-36 max-w-screen-2xl m-auto justify-end px-8 md:px-16">
       <div className={`basis-full flex justify-center md:justify-end xl:basis-2/4`}>
         <div className="flex justify-between flex-wrap gap-14 max-w-xl">
           {iconData.map((item, index) => {

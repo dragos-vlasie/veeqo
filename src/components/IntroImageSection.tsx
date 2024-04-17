@@ -31,7 +31,7 @@ return className
 }
   return (
     <div className="overflow-hidden">
-      <section className="flex justify-center gap-7 mx-[-20rem] overflow-hidden">
+      <section className="flex justify-center gap-3 md:gap-7 mx-[-8rem] md:mx-[-20rem] overflow-hidden">
         {images?.map((image, index) => (
           <div key={index} className={`${getClasses(index)} basis-1/5` } >
             <Image src={image.src} alt={image.alt} layout="responsive"/>

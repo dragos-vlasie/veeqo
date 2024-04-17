@@ -97,17 +97,17 @@ const Section: React.FC<SectionProps> = ({ title, theme = "light", padding, cont
     <section
       className={`${theme} ${
         padding === "lg"
-          ? "py-24 md:py-36"
+          ? "py-16 md:py-36"
           : padding === "xl"
-          ? "py-32 md:py-40"
+          ? "py-24 md:py-40"
           : padding === "md"
           ? "py-20 md:py-32"
           : padding === "sm"
-          ? "pt-8 pb-20 md:pb-24"
-          : "py-20 md:py-24"
+          ? "pt-8 pb-16 md:pb-24"
+          : "py-16 md:py-24"
       }`}
     >
-      <div className="flex max-w-screen-2xl flex-wrap md:flex-nowrap px-8 md:px-16 m-auto gap-16 justify-around ">{renderContent()}</div>
+      <div className="flex max-w-screen-2xl flex-wrap md:flex-nowrap px-8 md:px-16 m-auto gap-6 md:gap-16 justify-around ">{renderContent()}</div>
     </section>
   );
 };
