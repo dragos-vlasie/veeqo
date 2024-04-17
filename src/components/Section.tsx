@@ -41,20 +41,20 @@ type SectionProps = {
   theme: "light" | "dark";
 };
 
-const Section: React.FC<SectionProps> = ({ title, theme = "light", padding, content }) => {
+const Section: React.FC<SectionProps> = ({ theme = "light", padding, content }) => {
   const textColor = theme === "light" ? "text-[#05192D]" : "text-white";
   const backgroundColor = theme === "dark" ? "bg-[#CCF7FC] text-[#05192D]" : "bg-[#05192D] text-white";
   const flexOrder = (item: TextBlock | ImageBlock) => (item.isFirst ? "order-1" : "order-2");
-  const getTextPosition = (item: TextBlock) => (item.textPosition === "top" ? "self-top" : "self-end md:mb-[-6rem]");
+  const getTextPosition = (item: TextBlock) =>
+    item.textPosition === "top" ? "self-top mb-[-3rem] mt-0 md:mt-16" : "self-end md:mb-[-6rem]";
 
-  // we have button
   const renderContent = () => {
     return content.map((item, index) => {
       if (item.__typename === "TextBlock") {
         const order = flexOrder(item);
         const textBlockItem = item as TextBlock;
         const textPosition = textBlockItem.textPosition ? getTextPosition(textBlockItem) : "self-center";
-        // TODO offset text
+        const checkBackground = textBlockItem.textPosition && textBlockItem.textPosition === "top" ? "bg-[#2578FF]" : "";
 
         return (
           <div
@@ -63,16 +63,22 @@ const Section: React.FC<SectionProps> = ({ title, theme = "light", padding, cont
             ${textColor} ${order} ${textPosition} `}
           >
             {textBlockItem.tag && (
-              <span className={`${backgroundColor} w-fit text-base py-2 px-4 rounded-full inline-block`}>
+              <span
+                className={`${backgroundColor} ${checkBackground} w-fit font-semibold text-base py-2 px-4 rounded-full inline-block`}
+              >
                 {textBlockItem.tag}
               </span>
             )}
 
-            {textBlockItem.headline && <span className="block mt-12 text-4xl font-semibold">{textBlockItem.headline}</span>}
+            {textBlockItem.headline && (
+              <span className="block mt-8 md:mt-12 text-4xl font-semibold">{textBlockItem.headline}</span>
+            )}
 
-            {textBlockItem.text && <div className="my-14 normal-text" dangerouslySetInnerHTML={{ __html: textBlockItem.text }} />}
+            {textBlockItem.text && (
+              <div className={`my-8 md:my-14 normal-text`} dangerouslySetInnerHTML={{ __html: textBlockItem.text }} />
+            )}
 
-            {textBlockItem.headlineXl && <span className="mt-12 block headlineXl "> {textBlockItem.headlineXl} </span>}
+            {textBlockItem.headlineXl && <span className="mt-4 md:mt-12 block headlineXl "> {textBlockItem.headlineXl} </span>}
 
             {textBlockItem.buttonText && (
               <Button className="block" href={textBlockItem?.buttonLink || "/"}>
@@ -85,7 +91,7 @@ const Section: React.FC<SectionProps> = ({ title, theme = "light", padding, cont
         const order = flexOrder(item);
         const imageBlockItem = item as ImageBlock;
         return (
-          <div key={index} className={`max-w-max md:max-w-md 2xl:max-w-2xl row-end-1 col-start-7 col-end-11 ${order}`}>
+          <div key={index} className={`max-w-max md:max-w-md 2xl:max-w-2xl ${order}`}>
             <Image src={imageBlockItem.image.src} alt={imageBlockItem.image.alt} />
           </div>
         );
@@ -107,7 +113,9 @@ const Section: React.FC<SectionProps> = ({ title, theme = "light", padding, cont
           : "py-16 md:py-24"
       }`}
     >
-      <div className="flex max-w-screen-2xl flex-wrap md:flex-nowrap px-8 md:px-16 m-auto gap-6 md:gap-16 justify-around ">{renderContent()}</div>
+      <div className="flex gap-16 md:gap-8 xl:gap-16 justify-start md:justify-around flex-wrap md:flex-nowrap max-w-screen-2xl px-8 md:px-16 m-auto">
+        {renderContent()}
+      </div>
     </section>
   );
 };
