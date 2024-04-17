@@ -54,7 +54,7 @@ const Section: React.FC<SectionProps> = ({ theme = "light", padding, content }) 
         const order = flexOrder(item);
         const textBlockItem = item as TextBlock;
         const textPosition = textBlockItem.textPosition ? getTextPosition(textBlockItem) : "self-center";
-        const checkBackground = textBlockItem.textPosition && textBlockItem.textPosition === "top" ? "bg-[#2578FF]" : "";
+        const checkBackground = textBlockItem.textPosition && textBlockItem.textPosition === "top" ? "!bg-[#2578FF]" : "";
 
         return (
           <div
@@ -64,7 +64,7 @@ const Section: React.FC<SectionProps> = ({ theme = "light", padding, content }) 
           >
             {textBlockItem.tag && (
               <span
-                className={`${backgroundColor} ${checkBackground} w-fit font-semibold text-base py-2 px-4 rounded-full inline-block`}
+                className={`${checkBackground} ${backgroundColor} w-fit font-semibold text-base py-2 px-4 rounded-full inline-block`}
               >
                 {textBlockItem.tag}
               </span>

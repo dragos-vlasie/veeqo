@@ -12,8 +12,6 @@ export const MockData = [
     contentType: "Header",
     poster: "/assets/hero-video-poster-image.jpg",
     video: getStarted,
-    padding: "lg",
-    theme: "dark",
   },
   {
     contentType: "Section",
@@ -41,15 +39,15 @@ export const MockData = [
   {
     contentType: "IntroImagesSection",
     images: [
-      { src: introImage1, alt: "image 1", className: "mt-16 mb-10" },
+      { src: introImage1, alt: "2 small dogs in the grass", className: "mt-16 mb-10" },
 
-      { src: introImage2, alt: "Image 2", className: "mb-36" },
+      { src: introImage2, alt: "small dog in a cup", className: "mb-36" },
 
-      { src: introImage3, alt: "Image 3", className: "mt-48 mb-14" },
+      { src: introImage3, alt: "close up of a dog", className: "mt-48 mb-14" },
 
       {
         src: introImage4,
-        alt: "Image 4",
+        alt: "a sitting pug ",
         className: "mt-4 mb-2",
       },
     ],
@@ -94,7 +92,7 @@ export const MockData = [
       },
       {
         __typename: "TextBlock",
-        isFirst:true,
+        isFirst: true,
         textPosition: "offsetBottom",
         headlineXl: "1,000 People",
         tag: "We’re a team of",

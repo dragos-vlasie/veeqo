@@ -12,32 +12,34 @@ type IconsTextProps = {
     icon: "marketing" | "finance" | "support" | "backend" | "productDesign" | "frontend"; // Specify all possible icon values
     text: string;
   }[];
-  startCol: number;
-  endCol: number;
 };
 
-function IconsText({ iconData, startCol, endCol }: IconsTextProps) {
+function IconsText({ iconData }: IconsTextProps) {
   /**
    * Determine the right icon to be displayed depending
    */
   const iconToDisplay = (checkIcon: string) => {
     switch (checkIcon) {
       case "marketing":
-        return <Image width={90} height={90} alt="test" src={marketing} />;
+        return <Image width={90} height={90} alt="marketing icon" src={marketing} />;
       case "backend":
-        return <Image width={90} height={90} alt="test" src={backend} />;
+        return <Image width={90} height={90} alt="backend icon" src={backend} />;
       case "productDesign":
-        return <Image width={90} height={90} alt="test" src={productDesign} />;
+        return <Image width={90} height={90} alt="productDesign icon" src={productDesign} />;
       case "support":
-        return <Image width={90} height={90} alt="test" src={support} />;
+        return <Image width={90} height={90} alt="support icon" src={support} />;
       case "frontend":
-        return <Image width={90} height={90} alt="test" src={frontend} />;
+        return <Image width={90} height={90} alt="frontend icon" src={frontend} />;
       case "finance":
-        return <Image width={90} height={90} alt="test" src={finance} />;
+        return <Image width={90} height={90} alt="finance icon" src={finance} />;
       default:
         return "";
     }
   };
+
+  /**
+   * The 'splitText' function is used to split the 'text' property of each object into two parts: the first word and the rest of the sentence.
+   */
 
   const splitText = (text: string) => {
     const textArray = text.split(" ");
