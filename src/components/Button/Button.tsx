@@ -16,7 +16,11 @@ type ButtonProps = {
  */
 export default function Button({ children, href, className, ...props }: ButtonProps) {
   return (
-    <Link className={clsx("w-fit h-fit py-3 px-4 rounded-xl font-semibold bg-[#05192D] text-white ", className)} href={href} {...props}>
+    <Link
+      className={clsx("w-fit h-fit py-3 px-4 rounded-xl font-semibold bg-[#05192D] text-white ", className)}
+      href={href}
+      {...props}
+    >
       {children}
     </Link>
   );
