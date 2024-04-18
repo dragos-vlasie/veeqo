@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import backend from "/public/assets/backend.svg";
 import marketing from "/public/assets/marketing.svg";
@@ -57,7 +57,7 @@ function IconsText({ iconData }: IconsTextProps) {
       delay += (index - 1) / 10;
     }
     return delay;
-  }
+  };
   return (
     <div className="flex mt-8 md:mt-24 mb-24 md:mb-36 max-w-screen-2xl m-auto justify-end px-8 md:px-16">
       <div className={`basis-full flex justify-center md:justify-end xl:basis-2/4`}>
@@ -66,15 +66,17 @@ function IconsText({ iconData }: IconsTextProps) {
             const [firstWord, restOfSentence] = splitText(item.text);
             return (
               <motion.div
-              initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: delayEachItem(index) }}
-            variants={{
-              visible: { opacity: 1, x: 0, y: 0 },
-              hidden: { opacity: 0, x: 10, y: 50},
-            }}
-              key={`${index}-${item.icon}`} className="flex md:max-w-52">
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: delayEachItem(index) }}
+                variants={{
+                  visible: { opacity: 1, x: 0, y: 0 },
+                  hidden: { opacity: 0, x: 10, y: 50 },
+                }}
+                key={`${index}-${item.icon}`}
+                className="flex md:max-w-52"
+              >
                 <span className="flex gap-7 md:inline">
                   {iconToDisplay(item.icon)}
                   <span className="text-[#787ea4] block mt-8 text-3xl">

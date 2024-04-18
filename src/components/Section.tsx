@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import Image from "next/image";
 import Button from "./Button";
@@ -42,18 +42,17 @@ type SectionProps = {
 };
 
 const Section: React.FC<SectionProps> = ({ theme = "light", padding, content }) => {
- // Determine text color based on the theme
- const textColor = theme === "light" ? "text-[#05192D]" : "text-white";
- // Determine background color based on the theme
- const backgroundColor = theme === "dark" ? "bg-[#CCF7FC] text-[#05192D]" : "bg-[#05192D] text-white";
+  // Determine text color based on the theme
+  const textColor = theme === "light" ? "text-[#05192D]" : "text-white";
+  // Determine background color based on the theme
+  const backgroundColor = theme === "dark" ? "bg-[#CCF7FC] text-[#05192D]" : "bg-[#05192D] text-white";
 
- // Function to determine flex order based on the item type
- const flexOrder = (item: TextBlock | ImageBlock) => (item.isFirst ? "order-1" : "order-2");
+  // Function to determine flex order based on the item type
+  const flexOrder = (item: TextBlock | ImageBlock) => (item.isFirst ? "order-1" : "order-2");
 
- // Function to determine text position based on the TextBlock properties
- const getTextPosition = (item: TextBlock) =>
-   item.textPosition === "top" ? "self-top mb-[-3rem] mt-0 md:mt-16" : "self-end md:mb-[-6rem]";
-
+  // Function to determine text position based on the TextBlock properties
+  const getTextPosition = (item: TextBlock) =>
+    item.textPosition === "top" ? "self-top mb-[-3rem] mt-0 md:mt-16" : "self-end md:mb-[-6rem]";
 
   const renderContent = () => {
     return content.map((item, index) => {
@@ -63,21 +62,21 @@ const Section: React.FC<SectionProps> = ({ theme = "light", padding, content }) 
         const textPosition = textBlockItem.textPosition ? getTextPosition(textBlockItem) : "self-center";
         const checkBackground = textBlockItem.textPosition && textBlockItem.textPosition === "top" ? "!bg-[#2578FF]" : "";
 
-        const offsetX = index % 2 ? -40 : 40
+        const offsetX = index % 2 ? -40 : 40;
         return (
           <motion.div
-          initial={{
-            opacity: 0,
-            x: index % 2 === 0 ? 50 : -50
-          }}
-          whileInView={{
-            opacity: 1,
-            x: 0, 
-            transition: {
-              duration: 1
-            }
-          }}
-          viewport={{ once: true }}
+            initial={{
+              opacity: 0,
+              x: index % 2 === 0 ? 50 : -50,
+            }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+              transition: {
+                duration: 1,
+              },
+            }}
+            viewport={{ once: true }}
             key={index}
             className={` text-block
             ${textColor} ${order} ${textPosition} `}

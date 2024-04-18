@@ -41,7 +41,7 @@ const IntroImagesSection: React.FC<IntroImagesSectionProps> = ({ images }) => {
     return yOffset;
   };
 
-   // Calculate hidden Y offset based on index
+  // Calculate hidden Y offset based on index
   const getDelayOffset = (index: number) => {
     // Initial offset
     let yOffset = 0.2;
@@ -63,7 +63,7 @@ const IntroImagesSection: React.FC<IntroImagesSectionProps> = ({ images }) => {
             transition={{ duration: 0.8, delay: getDelayOffset(index) }}
             variants={{
               visible: { opacity: 1, x: 0, y: 0 },
-              hidden: { opacity: 0, x: 0, y: getHiddenYOffset(index)},
+              hidden: { opacity: 0, x: 0, y: getHiddenYOffset(index) },
             }}
             key={index}
             className={`${getClasses(index)} basis-1/5`}

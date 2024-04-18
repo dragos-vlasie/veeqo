@@ -7,6 +7,7 @@ import featuredImage1 from "/public/assets/feature-image-1.png";
 import featuredImage2 from "/public/assets/feature-image-2.png";
 import dogsCircleImage from "/public/assets/stats-image.png";
 
+// Array containing mock data to simulate content from a CMS
 export const MockData = [
   {
     contentType: "Header",
@@ -15,7 +16,7 @@ export const MockData = [
   },
   {
     contentType: "Section",
-    padding: "lg",
+    padding: "sm",
     theme: "dark",
     content: [
       {
